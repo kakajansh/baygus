@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryketek</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            background-color: #eee;
+            color: #413127;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .outer {
+            height: 100%;
+            display: table; 
+            position: absolute; 
+            height: 100%; 
+            width: 100%;
+        }
+
+        .middle {
+            display: table-cell; 
+            vertical-align: middle;
+        }
+        
+        .inner {
+            margin-left: auto; 
+            margin-right: auto; 
+            width: 320px;
+            text-align: center;
+        }
+
+        ul, li {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            background-color: #fff;
+            display: inline-block;
+            width: 30%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        li .icon {
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        li .title {
+            font-size: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: red;
+        }
+
+        .st6, .st7 {
+            transform-origin: center;
+        }
+
+        .st2 {
+            transform-origin: 145px 145px;
+        }
+
+        .name {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            /*margin-right: 10px;*/
+            font-size: 10px;
+            z-index: 99;
+            /*width: 100%;*/
+        }
+
+        #baygus {
+            /*border: 1px solid #999;*/
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var leye = $('#XMLID_10_');
+        var reye = $('#XMLID_11_');
+
+        var svg = document.querySelector('svg');
+        var pt = svg.createSVGPoint();
+
+        function cursorPoint(evt){
+            pt.x = evt.clientX - 100; 
+            pt.y = evt.clientY - 100;
+            return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
+
+        function valBetween(v, min, max) {
+            return (Math.min(max, Math.max(min, v)));
+        }
+
+        $(document).mousemove(function(e) {
+            var pos = cursorPoint(e);
+            var posX = valBetween(pos.x * 0.024, -9, 9);
+            var posY = valBetween(pos.y * 0.024, -9, 9);
+
+            $('#XMLID_10_').velocity({
+                translateX: posX,
+                translateY: posY,
+            }, 1);
+
+            $('#XMLID_11_').velocity({
+                translateX: posX,
+                translateY: posY,
+            }, 1);
+        });
+
+        $('#ganat1').velocity({
+            rotateZ: 10,
+            scale: 1.03,
+        }, {
+            loop: 100,
+            duration: 3000,
+        });
+
+
+        $('#ganat2').velocity({
+            rotateZ: -10,
+            scale: 1.03,
+        }, {
+            loop: 100,
+            duration: 3000,
+        });
+
+        $('#baygus').click(function() {
+            $('#kelle').velocity({ translateY: "+=30" }, 300);
+            $('.st6').velocity({ skewX: 70, rotateX: 90 }, 300);
+            $('.st7').velocity({ scale: 0.4 }, 300);
+            $('.st7').velocity({ scale: 1 }, 300);
+            $('.st6').velocity({ skewX: 0, rotateX: 0 }, 300);
+            $('#kelle').velocity({ translateY: "-=30" }, 300);
+        })
+
+        $(document).click(function(e) {
+            var pos = cursorPoint(e);
+            console.log(pos);
+            console.log(window.innerWidth, window.innerHeight);
+        })
+    });
+    </script>
+</head>
+<body>
+<div class="name">
+    <a href="http://sayawan.com/" target="_blank">Kakajan SH / 2016</a>
+</div>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+
+<svg id="baygus" viewBox="0 0 275.5 303.3">
+<style type="text/css">
+    .st0{fill:#C1571B;}
+    .st1{fill:#F8CF7F;}
+    .st2{fill:#86582F;}
+    .st3{fill:#845830;}
+    .st4{fill:#F8D080;}
+    .st5{fill:#FAEFCE;}
+    .st6{fill:#875B35;}
+    .st7{fill:#FFFFFF;}
+    .st8{fill:#855932;}
+    .st9{fill:none;stroke:#000000;stroke-miterlimit:10;}
+    .st10{fill:#F8D082;}
+</style>
+<path id="XMLID_17_" class="st0" d="M132.9,64.3c0,0,27.2,1.8,51.3,21.1c1.6,1.3,3.1,2.6,4.7,4c3.5,3.2,6.9,6.7,10.1,10.4
+    c1,1.1,1.9,2.3,2.9,3.4c17.1,21.2,30.6,47.1,30.1,71.2c0,0.4,0,0.7,0,1.1c-0.9,23.4-13.2,49.1-28.6,68.1
+    c-28.9,35.6-68.3,54.7-68.3,54.7h-0.8c0,0-39.4-19.1-68.3-54.7c-15.4-19-27.7-44.5-28.6-67.9c0-0.4,0-0.8,0-1.2
+    c-0.5-24.1,13-50.1,30.1-71.3c0.9-1.2,1.9-2.3,2.9-3.4c3.2-3.7,6.6-7.2,10.1-10.4c1.5-1.4,3.1-2.8,4.7-4
+    c24.1-19.3,51.3-21.1,51.3-21.1"/>
+<path id="XMLID_27_" class="st1" d="M98.7,172.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_26_" class="st1" d="M134.7,172.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_25_" class="st1" d="M170.7,172.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_28_" class="st1" d="M62.7,172.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_19_" class="st1" d="M116.7,251.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_20_" class="st1" d="M98.7,224.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_21_" class="st1" d="M134.7,224.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_23_" class="st1" d="M80.7,198.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_22_" class="st1" d="M116.7,198.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="XMLID_24_" class="st1" d="M152.7,198.3c0,10,8,17.8,17.7,17.8s17.6-7.9,17.6-17.9"/>
+<path id="ganat1" class="st2" d="M115.5,155.3c0,0-15-9.2-26.8-22.8C76.8,118.8,68,100.9,68,100.9s-31.7,40.9-30.3,76.7
+    c1.5,39.9,36.2,75.1,36.2,75.1s18.8-25.7,29.8-51.5C113.4,178.4,115.5,155.3,115.5,155.3z"/>
+<path id="ganat2" class="st2" d="M154,155.7c0,0,14.9-9.3,26.7-22.9c11.9-13.7,20.6-31.7,20.6-31.7s31.9,40.7,30.8,76.5
+    c-1.3,39.9-35.8,75.2-35.8,75.2s-18.9-25.6-30.1-51.3C156.3,178.9,154,155.7,154,155.7z"/>
+<path id="XMLID_18_" class="st9" d="M151.5,250.8"/>
+<path id="XMLID_15_" class="st9" d="M116.5,250.8"/>
+<line id="XMLID_33_" class="st9" x1="101" y1="273.8" x2="101" y2="273.8"/>
+<path id="XMLID_32_" class="st10" d="M94.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C97.6,299.8,94.5,296.3,94.5,296.3z"/>
+<path id="XMLID_29_" class="st10" d="M105.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C108.6,299.8,105.5,296.3,105.5,296.3z"/>
+<path id="XMLID_30_" class="st10" d="M116.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C119.6,299.8,116.5,296.3,116.5,296.3z"/>
+<path id="XMLID_35_" class="st10" d="M140.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C143.6,299.8,140.5,296.3,140.5,296.3z"/>
+<path id="XMLID_34_" class="st10" d="M151.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C154.6,299.8,151.5,296.3,151.5,296.3z"/>
+<path id="XMLID_31_" class="st10" d="M162.5,296.3v-19c0,0,3.1-3.9,5.5-3.9c2.6,0,5.5,3.9,5.5,3.9v19c0,0-2.9,3.5-5.5,3.5
+    C165.6,299.8,162.5,296.3,162.5,296.3z"/>
+<g id="kelle">
+<path id="XMLID_14_" class="st4" d="M194.4,111.2c2.6-3.8,4.9-8.9,6.8-13.1c1.8-4.2,3.3-8.7,4.2-13.2c1-4.6,1.5-9.4,1.5-14.2
+    c0-4.9-0.5-9.6-1.5-14.2c-1-4.6-2.4-9-4.2-13.2c-1.8-4.2-4.1-8.2-6.7-12s-5.6-7.3-8.8-10.4c-3.3-3.2-6.9-6.1-10.7-8.6
+    c-3.8-2.5-8-4.7-12.3-6.5s-8.9-3.2-13.6-4.1c-4.7-0.9-9.6-1.4-14.6-1.4s-9.9,0.5-14.6,1.4s-9.3,2.3-13.6,4.1s-8.4,4-12.3,6.5
+    s-7.4,5.4-10.7,8.6s-6.2,6.7-8.8,10.4c-2.6,3.8-4.8,7.8-6.7,12c-1.8,4.2-3.3,8.7-4.2,13.2c-1,4.6-1.5,9.4-1.5,14.2
+    c0,4.9,0.5,9.6,1.5,14.2c1,4.6,2.4,9,4.2,13.2c1.8,4.2,4.2,9.3,6.8,13.1c0,0,7.9,12.3,19.5,24.7s26.9,24.7,41.6,24.7
+    c15,0,29.5-12.3,40.2-24.7S194.4,111.2,194.4,111.2z"/> 
+<path id="XMLID_8_" class="st3" d="M68.3,0l8.8,28c0,0,5.5-6.8,11.7-11.8c5.8-4.7,12.2-7.8,12.2-7.8L68.3,0z"/>
+
+<path id="XMLID_5_" class="st3" d="M201,0l-8.8,28c0,0-5.5-6.8-11.7-11.8c-5.8-4.7-12.2-7.8-12.2-7.8L201,0z"/>
+<ellipse id="XMLID_9_" class="st5" cx="103.9" cy="67" rx="30.2" ry="30.1"/>
+<circle id="XMLID_7_" class="st6" cx="106" cy="67.3" r="15.5"/>
+<circle id="XMLID_10_" class="st7" cx="105.4" cy="66.9" r="4.9"/>
+<ellipse id="XMLID_13_" class="st5" cx="162.9" cy="67" rx="30.2" ry="30.1"/>
+<circle id="XMLID_12_" class="st6" cx="160.8" cy="67.3" r="15.5"/>
+<circle id="XMLID_11_" class="st7" cx="160.3" cy="66.9" r="4.9"/>
+<path id="XMLID_16_" class="st8" d="M133.7,78c0,0,1.9,5,5.2,9.1c3.5,4.2,8.5,7.4,8.5,7.4l-14.3,14l-12.4-15.2c0,0,4.7-3,7.9-6.9
+    c3.1-3.7,4.9-8.4,4.9-8.4"/>
+</g>
+</svg>
+    <h1>Aryketek</h1>
+<ul>
+    <li>
+        <img src="move.png" alt="" class="icon">
+        <div class="title">Syçanjygy oýnat</div>
+    </li>
+    <li>
+        <img src="click.png" alt="" class="icon">
+        <div class="title">Baýguşa bas</div>
+    </li>
+    <li>
+        <img src="gif.png" alt="" class="icon">
+        <div class="title"><a href="http://ww4.sinaimg.cn/mw690/95e59184jw1f01p33oq5bg20go0go7dh.gif" target="_blank">Gif gör</a></div>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
